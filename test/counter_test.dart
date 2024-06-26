@@ -3,8 +3,14 @@ import 'package:unittest_1/counter.dart';
 
 void main(){
   // Pretest
-  setUp((){});
-  setUpAll((){});
+  //setUp((){});
+  //setUpAll((){});
+  late Counter counter;
+
+  setUp( () {
+    counter = Counter();
+  } );
+
 
   //Testing
   group(
@@ -12,7 +18,7 @@ void main(){
       (){
         // put all test methods inside here which need to group
 
-        final Counter counter = Counter();
+        //final Counter counter = Counter();
 
         //Test-1
         //given | when | then
@@ -56,11 +62,26 @@ void main(){
             }
         );
 
+        //test-3
+        //given | when | then
+        test(
+          'given Counter class when it is reset then value of the counter should be 0',
+            (){
+              //Arrange - given
+              //Act - when
+              counter.reset();
+              // final val = counter.counter;
+              //Assert - then
+              expect(counter.counter,0);
+
+            }
+        );
+
       }
   );
 
   // Post test
-  tearDown((){});
-  tearDownAll((){});
+  //tearDown((){});
+  //tearDownAll((){});
 
 }
